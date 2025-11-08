@@ -30,15 +30,16 @@
 
 // ============ HARDWARE CONFIGURATION ============
 
+
 // Audio recording configuration
-#define MIC_ADC_CHANNEL ADC1_CHANNEL_0  // GPIO0 - where analog microphone is connected
+#define MIC_ADC_CHANNEL ADC1_CHANNEL_0  // GPIO36 - where analog microphone is connected
 #define SAMPLE_RATE 16000               // 16kHz sample rate for speech recognition
 #define MAX_DURATION_SEC 10             // Maximum recording duration in seconds
 #define MAX_SAMPLES (SAMPLE_RATE * MAX_DURATION_SEC)  // Total samples we can record
-#define SD_CS 10                        // Chip select pin for SD card
+#define SD_CS 5                         // Chip select pin for SD card
 
 // User interface
-#define BUTTON_PIN 3                    // Push button pin (active LOW when pressed)
+#define BUTTON_PIN 4                    // Push button pin (active LOW when pressed)
 
 // OLED Display configuration (0.96" 128x64 SSD1306)
 #define SCREEN_WIDTH 128
@@ -75,14 +76,17 @@ bool initSD();
 
 // ============ SETUP FUNCTION ============
 // This runs once when the ESP32 starts up
+
+
 void setup() {
   // Initialize serial communication for debugging
   Serial.begin(115200);
   delay(800);
   Serial.println("Jarvis Voice Assistant Starting...");
 
-  // Configure button pin with internal pull-up resistor
-  // Button will read LOW when pressed, HIGH when released
+  // ADD THIS LINE:
+  Wire.begin(21, 22);  // SDA=GPIO21, SCL=GPIO22 for ESP32
+
   pinMode(BUTTON_PIN, INPUT_PULLUP);
 
   // Initialize OLED display
@@ -246,7 +250,7 @@ void showStatus(const char* line1, const char* line2) {
  */
 bool initSD() {
   // Initialize SPI communication with specific pins
-  SPI.begin(5, 9, 4); // SCK=5, MISO=9, MOSI=4 for ESP32-C3
+  SPI.begin(18, 19, 23); // SCK=18, MISO=19, MOSI=23 for ESP32
   if (!SD.begin(SD_CS, SPI)) {
     Serial.println("Card mount failed");
     return false;
