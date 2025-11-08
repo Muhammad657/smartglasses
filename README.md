@@ -1,5 +1,51 @@
+# 🎙️ Jarvis Voice Assistant - ESP32
 
-### Detailed Process:
+A standalone voice assistant built on ESP32 that listens to your voice commands and displays AI responses on an OLED screen. No audio output - just pure visual interaction!
+
+## 🌟 Features
+
+- **Voice Activation**: Hold button to record voice commands
+- **Speech-to-Text**: Converts speech to text using Deepgram API
+- **AI Processing**: Gets intelligent responses from OpenAI GPT
+- **Visual Interface**: Shows status and responses on 0.96" OLED display (128x64)
+- **Standalone Operation**: Uses SD card for temporary storage
+- **Wireless Connectivity**: Connects to WiFi for cloud processing
+
+## 🛠️ Hardware Requirements
+
+- ESP32 Dev Module (the big one)
+- 0.96" OLED SSD1306 display (128x64, I2C)
+- Electret microphone breakout board (analog output)
+- SD card module
+- Push button
+- Breadboard and jumper wires
+
+## 📋 Software Requirements
+
+- Arduino IDE with ESP32 support
+- APIs:
+  - OpenAI API key (for GPT responses)
+  - Deepgram API key (for speech-to-text)
+
+## 🔌 Wiring Diagram - ESP32 Dev Module
+
+| ESP32 Pin | Component | Connection |
+|-----------|-----------|------------|
+| GPIO36 | Microphone | Analog Out (AUDIO) |
+| GPIO4 | Push Button | One side (other to GND) |
+| GPIO23 | SD Card | MOSI |
+| GPIO18 | SD Card | SCK |
+| GPIO19 | SD Card | MISO |
+| GPIO5 | SD Card | CS |
+| GPIO21 | OLED Display | SDA |
+| GPIO22 | OLED Display | SCL |
+| 3.3V | All components | VCC |
+| GND | All components | GND |
+
+## 🚀 How It Works
+
+### System Flow:
+
 
 1. **Initialization**: 
    - Boots up and shows "Jarvis Booting"
