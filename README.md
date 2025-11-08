@@ -92,9 +92,9 @@ A standalone voice assistant built on ESP32 that listens to your voice commands 
 **Update the code with your credentials:**
 
 #### WiFi Configuration
-const char* ssid = "YOUR_WIFI_SSID";
-const char* password = "YOUR_WIFI_PASSWORD";
+```const char* ssid = "YOUR_WIFI_SSID";```
+```const char* password = "YOUR_WIFI_PASSWORD";```
 
 #### API Keys
-** const char* OPENAI_API_KEY = "sk-your-openai-api-key"; **
-** const char* DEEPGRAM_API_KEY = "your-deepgram-api-key"; **
+``` const char* OPENAI_API_KEY = "sk-your-openai-api-key";```
+```** const char* DEEPGRAM_API_KEY = "your-deepgram-api-key"; ```
