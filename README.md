@@ -1,6 +1,6 @@
-# 🎙️ Jarvis Voice Assistant - ESP32
+# 🎙️ Jarvis Voice Assistant - ESP32 Dev Module
 
-A standalone voice assistant built on ESP32 that listens to your voice commands and displays AI responses on an OLED screen. No audio output - just pure visual interaction!
+A standalone voice assistant built on ESP32 Dev mod. that listens to your voice commands and displays AI responses on an OLED screen. No audio output - just pure visual interaction!
 
 ## 🌟 Features
 
